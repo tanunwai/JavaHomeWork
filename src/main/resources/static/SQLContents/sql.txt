@@ -1,0 +1,50 @@
+create table i_coindesk (
+		id varchar(255) not null,
+        chartname varchar(20),
+        disclaimer varchar(500) not null,
+        update_time datetime(6),
+        primary key (id)
+    ) engine=InnoDB    
+    
+================================================ 
+create table i_bpientity (
+        id varchar(255) not null,
+        cid varchar(255),
+        primary key (id)
+    ) engine=InnoDB    
+    
+================================================ 
+create table i_cointype (
+        id varchar(255) not null,
+        code varchar(20),
+        description varchar(255),
+        rate varchar(255),
+        rate_float double precision,
+        symbol varchar(20),
+        bid varchar(255),
+        primary key (id)
+    ) engine=InnoDB    
+    
+================================================ 
+alter table i_bpientity 
+       add constraint i_bpientity_fk 
+       foreign key (cid) 
+       references i_coindesk (id)
+    
+================================================ 
+alter table i_cointype 
+       add constraint i_cointype_fk 
+       foreign key (bid) 
+       references i_bpientity (id)    
+==================================================================
+select b.id, b.cid, c.id, c.code, c.symbol, c.description,	c.rate, c.bid, c.rate_float
+from i_bpientity b
+left outer join i_cointype c
+on b.id=c.bid 
+where b.id='bbf8350e-1a3e-47ef-98e8-f4603a966e48'
+==================================================================		
+select c.id, c.chartname, c.disclaimer, c.update_time, b.cid, b.id
+from i_coindesk c
+left outer join i_bpientity b
+on c.id=b.cid 
+where c.id=?

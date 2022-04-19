@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="common/common_css::css(~{::link})"></head>
+    <head th:replace="common/common_js::js(~{::script})"></head>
+    <meta charset="UTF-8">
+    <title>Show CoinsApiDetail</title>
+</head>
+<body>
+<div>
+    <table class="pure-table pure-table-horizontal">
+        <thead>
+            <tr>
+                <th>時間</th>
+                <th>更新格式_1</th>
+                <th>更新格式_2</th>
+                <th>更新格式_3</th>
+
+                <th>免責聲明</th>
+
+                <th>貨幣名稱</th>
+
+                <th>Bpi</th>
+                <th>美金</th>
+                <th>英鎊</th>
+                <th>歐元</th>
+
+                <th>代碼</th>
+                <th>象徵</th>
+                <th>利率</th>
+                <th>描述</th>
+                <th>浮動利率</th>
+            </tr>
+        </thead>
+        <tbody id="clientTable">
+
+        </tbody>
+</table>
+</div>
+<script type="text/javascript" th:src="@{/js/mjs/clientConindest.js}"></script>
+</body>
+</html>
