@@ -6,3 +6,4 @@
 # /api/v2/deletecoin/{id} ->刪除api資料
 # src/test com.demo.javahomework.JavaHomeworkApplicationTests ->測試類別
 # resource/static/SQLContents/sal.txt ->sql語法
+# 資料庫->MySql
